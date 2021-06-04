@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="tr" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Film Kitaplığı Sistemi</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Film Kitaplığı Sistemi</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
+
 <body>
 
 	<div class="container my-2">
-	<h1>Film Ayrıntısı</h1>
-		<table border="1" class = "table table-striped table-responsive-md">
+		<h1>Film Ayrıntısı</h1>
+		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
 				<tr>
-				<th> Film Adı </th>
-				<th> Film Yayın Yılı </th>
-				<th> Film Türü </th>
-				<th> Film Açıklaması </th>
-				<th> Film Medyası </th>
-				<th> Dili </th>
-				<th> Oyuncular </th>
+					<th> Film Adı </th>
+					<th> Film Yayın Yılı </th>
+					<th> Film Türü </th>
+					<th> Film Açıklaması </th>
+					<th> Film Medyası </th>
+					<th> Dili </th>
+					<th> Oyuncular </th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,7 +36,8 @@
 				</tr>
 			</tbody>
 		</table>
-		<a th:href = "@{/}"> Film Listesine Geri Dön</a>
+		<a th:href="@{/}"> Film Listesine Geri Dön</a>
 	</div>
 </body>
+
 </html>

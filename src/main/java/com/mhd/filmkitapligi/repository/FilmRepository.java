@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mhd.filmkitapligi.model.Film;
 
-
 @Repository
-public interface FilmRepository extends JpaRepository<Film, Long>{
+public interface FilmRepository extends JpaRepository<Film, Long> {
 
 }

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="tr" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Film Kitaplığı Sistemi</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-	
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Film Kitaplığı Sistemi</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
+
 <body>
 
 	<div class="container my-2">
-	<h1>Film Listesi</h1>
-	
-	<a th:href = "@{/yeniFilmEkle}" class="btn btn-primary btn-sm mb-3"> Film Ekle </a>
-	
-		<table border="1" class = "table table-striped table-responsive-md">
+		<h1>Film Listesi</h1>
+
+		<a th:href="@{/yeniFilmEkle}" class="btn btn-primary btn-sm mb-3"> Film Ekle </a>
+
+		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
 				<tr>
 					<th>
@@ -25,23 +25,25 @@
 							Film Adı</a>
 					</th>
 					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmYayinYili&sortDir=' + ${reverseSortDir}}">
+						<a
+							th:href="@{'/page/' + ${currentPage} + '?sortField=filmYayinYili&sortDir=' + ${reverseSortDir}}">
 							Film Yayın Yılı</a>
 					</th>
 					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmTuru&sortDir=' + ${reverseSortDir}}">
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmTuru&sortDir=' + ${reverseSortDir}}">
 							Film Türü</a>
 					</th>
-								<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmAciklama&sortDir=' + ${reverseSortDir}}">
+					<th>
+						<a
+							th:href="@{'/page/' + ${currentPage} + '?sortField=filmAciklama&sortDir=' + ${reverseSortDir}}">
 							Film Açıklaması</a>
 					</th>
-								<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmMedya&sortDir=' + ${reverseSortDir}}">
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmMedya&sortDir=' + ${reverseSortDir}}">
 							Film Medyası</a>
 					</th>
-								<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmDili&sortDir=' + ${reverseSortDir}}">
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=filmDili&sortDir=' + ${reverseSortDir}}">
 							Film Dili</a>
 					</th>
 					<th> Görev </th>
@@ -56,19 +58,20 @@
 					<td th:text="${filmler.filmMedya}"></td>
 					<td th:text="${filmler.filmDili}"></td>
 					<td> <a th:href="@{/filmGuncelle/{id}(id=${filmler.id})}" class="btn btn-primary">Güncelle</a>
-					    <a th:href="@{/filmSil/{id}(id=${filmler.id})}" class="btn btn-danger">Sil</a>
-					    <a th:href="@{/filmAyrintilari/{id}(id=${filmler.id})}" class="btn btn-secondary">Film Ayrıntıları</a>
+						<a th:href="@{/filmSil/{id}(id=${filmler.id})}" class="btn btn-danger">Sil</a>
+						<a th:href="@{/filmAyrintilari/{id}(id=${filmler.id})}" class="btn btn-secondary">Film
+							Ayrıntıları</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		
-		<div th:if = "${totalPages > 1}">
-			<div class = "row col-sm-10">
-				<div class = "col-sm-2">
-					Total Rows: [[${totalItems}]] 
+
+		<div th:if="${totalPages > 1}">
+			<div class="row col-sm-10">
+				<div class="col-sm-2">
+					Total Rows: [[${totalItems}]]
 				</div>
-				<div class = "col-sm-1">
+				<div class="col-sm-1">
 					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
 						<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
 						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
